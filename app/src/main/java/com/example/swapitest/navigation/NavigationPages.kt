@@ -11,6 +11,7 @@ import com.example.swapitest.pages.people.PeoplePage
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_detail.PeopleDetailItem
 import com.example.swapitest.pages.people_detail.PeopleDetailPage
+import com.example.swapitest.pages.people_prop.PeoplePropPage
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterialApi
@@ -26,6 +27,10 @@ fun NavigationPages(navHostController: NavHostController) {
 
         composable(NavigationItem.PeopleDetail.route) {
             PeopleDetailPage(navHostController = navHostController, viewModel = peopleViewModel)
+        }
+
+        composable(NavigationItem.PeopleProp.route) {
+            PeoplePropPage(peopleViewModel = peopleViewModel)
         }
     }
 }
