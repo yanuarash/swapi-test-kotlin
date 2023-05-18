@@ -1,4 +1,4 @@
-package com.example.swapitest.networking.repo
+package com.example.swapitest.networking.repo.people
 
 import com.example.kotlintesttmdb.network.ApiRequest
 import com.example.kotlintesttmdb.network.ApiService
