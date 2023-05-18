@@ -30,7 +30,12 @@ fun PeopleDetailPage(viewModel: PeopleViewModel, navHostController: NavHostContr
         Box(modifier = Modifier.padding(paddingValues)) {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                 PeopleName(peopleDetail = peopleDetail)
-                ButtonPeopleProp(title = "Film", navHostController = navHostController)
+                ButtonPeopleProp(title = "Film") {
+                    navHostController.navigate(NavigationItem.PeopleProp.route)
+                }
+                ButtonPeopleProp(title = "Vehicle") {
+                    navHostController.navigate(NavigationItem.VehicleProp.route)
+                }
                 Text(
                     text = "Detail",
                     fontWeight = FontWeight.Bold,
@@ -75,8 +80,9 @@ fun PeopleName(peopleDetail: PeopleResult) {
         }
     }
 }
+
 @Composable
-fun ButtonPeopleProp(title: String, navHostController: NavHostController){
+fun ButtonPeopleProp(title: String, navigate: () -> Unit) {
     Card(
         backgroundColor = Color.Black,
         modifier = Modifier
@@ -84,7 +90,7 @@ fun ButtonPeopleProp(title: String, navHostController: NavHostController){
             .padding(8.dp)
             .height(90.dp)
             .clickable {
-                navHostController.navigate(NavigationItem.PeopleProp.route)
+                navigate()
             }
     ) {
         Text(
