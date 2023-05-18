@@ -14,7 +14,7 @@ class VehicleViewModel constructor(private val vehicleUseCase: VehicleUseCase) :
     private val _state = mutableStateOf(PeoplePropState())
     val state: State<PeoplePropState> = _state
 
-    fun getFilm(list: List<String>) {
+    fun getData(list: List<String>) {
         val res = vehicleUseCase.invoke(list)
         res.onEach { result ->
             when (result) {

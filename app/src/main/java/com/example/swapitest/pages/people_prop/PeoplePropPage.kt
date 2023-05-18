@@ -33,7 +33,7 @@ fun PeoplePropPage(
 
 @ExperimentalMaterialApi
 @Composable
-fun VehiclePage(
+fun VehiclePropPage(
     viewModel: VehicleViewModel = getViewModel(),
     peopleViewModel: PeopleViewModel
 ) {
@@ -41,7 +41,7 @@ fun VehiclePage(
     val list = currentState.data
 
     LaunchedEffect(key1 = peopleViewModel.peopleDetail.vehicles) {
-        viewModel.getFilm(peopleViewModel.peopleDetail.vehicles)
+        viewModel.getData(peopleViewModel.peopleDetail.vehicles)
     }
 
     PeoplePropContent(title = "Vehicle", list = list)
