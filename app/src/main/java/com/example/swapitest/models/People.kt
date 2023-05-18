@@ -1,6 +1,7 @@
 package com.example.swapitest.models
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
 data class People (
     val count: Int,
@@ -9,17 +10,18 @@ data class People (
     val results: List<PeopleResult>
 )
 
+@Serializable
 data class PeopleResult(
     val name: String,
     val height: String,
     val mass: String,
-    @JsonProperty("hair_color")
+    @SerializedName("hair_color")
     val hairColor: String,
-    @JsonProperty("skin_color")
+    @SerializedName("skin_color")
     val skinColor: String,
-    @JsonProperty("eye_color")
+    @SerializedName("eye_color")
     val eyeColor: String,
-    @JsonProperty("birth_year")
+    @SerializedName("birth_year")
     val birthYear: String,
     val gender: String,
     val homeworld: String,
