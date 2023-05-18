@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.swapitest.models.PeopleResult
 import com.example.swapitest.networking.Resource
-import com.example.swapitest.networking.repo.PeopleUseCase
+import com.example.swapitest.networking.repo.people.PeopleUseCase
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
