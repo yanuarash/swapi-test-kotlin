@@ -10,7 +10,6 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
 class SwapiTestApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
 
