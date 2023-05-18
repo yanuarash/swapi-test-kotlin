@@ -6,6 +6,9 @@ import com.example.swapitest.networking.repo.films.FilmUseCase
 import com.example.swapitest.networking.repo.people.PeopleRepo
 import com.example.swapitest.networking.repo.people.PeopleRepoImpl
 import com.example.swapitest.networking.repo.people.PeopleUseCase
+import com.example.swapitest.networking.repo.vehicles.VehicleRepo
+import com.example.swapitest.networking.repo.vehicles.VehicleRepoImpl
+import com.example.swapitest.networking.repo.vehicles.VehicleUseCase
 import org.koin.dsl.module
 
 val repoModule = module {
@@ -13,4 +16,6 @@ val repoModule = module {
     single<PeopleRepo> { PeopleRepoImpl(get()) }
     single { FilmUseCase(get()) }
     single<FilmRepo> { FilmRepoImpl(get()) }
+    single { VehicleUseCase(get()) }
+    single<VehicleRepo> { VehicleRepoImpl(get()) }
 }
