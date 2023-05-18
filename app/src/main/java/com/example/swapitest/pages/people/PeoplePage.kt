@@ -44,7 +44,7 @@ fun PeoplePage(viewModel: PeopleViewModel = getViewModel(), navHostController: N
 
 @Composable
 fun PeopleItem(navHostController: NavHostController, item: PeopleResult) {
-    Card(backgroundColor = Color.DarkGray, modifier = Modifier
+    Card(backgroundColor = Color.Black, modifier = Modifier
         .fillMaxWidth()
         .padding(8.dp)
         .height(90.dp)
@@ -54,7 +54,8 @@ fun PeopleItem(navHostController: NavHostController, item: PeopleResult) {
         Text(
             text = item.name,
             fontSize = 20.sp,
-            modifier = Modifier.padding(all = 8.dp)
+            modifier = Modifier.padding(all = 8.dp),
+            color = Color.White
         )
     }
 }
