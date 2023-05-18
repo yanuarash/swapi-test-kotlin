@@ -1,7 +1,6 @@
 package com.example.swapitest
 
-fun getFilmUrl(url: String): String {
-    val startIndex = 28
+fun getUrl(url: String, startIndex: Int): String {
     val substring = url.subSequence(startIndex, url.length)
     return substring.toString()
 }

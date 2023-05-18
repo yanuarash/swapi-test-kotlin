@@ -1,8 +1,7 @@
 package com.example.swapitest.networking.repo.vehicles
 
-import com.example.swapitest.getFilmUrl
+import com.example.swapitest.getUrl
 import com.example.swapitest.networking.Resource
-import com.example.swapitest.networking.repo.films.FilmRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -26,7 +25,7 @@ class VehicleUseCase constructor(private val vehicleRepo: VehicleRepo) {
 
         if (list.size > 0) {
             for (value in list) {
-                val res = vehicleRepo.getData(getFilmUrl(value))
+                val res = vehicleRepo.getData(getUrl(url = value, startIndex = 31))
                 listData.add(res.name)
             }
         }

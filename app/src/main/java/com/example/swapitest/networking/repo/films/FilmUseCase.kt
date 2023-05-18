@@ -1,6 +1,6 @@
 package com.example.swapitest.networking.repo.films
 
-import com.example.swapitest.getFilmUrl
+import com.example.swapitest.getUrl
 import com.example.swapitest.networking.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -25,7 +25,7 @@ class FilmUseCase constructor(private val filmRepo: FilmRepo) {
 
         if (films.size > 0) {
             for (value in films) {
-                val res = filmRepo.getFilm(getFilmUrl(value))
+                val res = filmRepo.getFilm(getUrl(url = value, startIndex = 28))
                 listFilms.add(res.title)
             }
         }
