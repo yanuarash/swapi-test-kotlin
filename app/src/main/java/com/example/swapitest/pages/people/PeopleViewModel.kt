@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.swapitest.models.PeopleResult
 import com.example.swapitest.networking.Resource
 import com.example.swapitest.networking.repo.PeopleUseCase
 import kotlinx.coroutines.flow.launchIn
@@ -12,6 +13,7 @@ import kotlinx.coroutines.flow.onEach
 class PeopleViewModel constructor(private val peopleUseCase: PeopleUseCase) : ViewModel() {
     private val _state = mutableStateOf(PeopleState())
     val state: State<PeopleState> = _state
+    lateinit var peopleDetail: PeopleResult;
 
     init {
         getPeople()

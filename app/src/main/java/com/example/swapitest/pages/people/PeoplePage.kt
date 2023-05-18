@@ -16,7 +16,7 @@ import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterialApi
 @Composable
-fun PeoplePage(viewModel: PeopleViewModel = getViewModel(), navHostController: NavHostController) {
+fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController) {
     val peopleState = viewModel.state.value
     val peopleList = peopleState.data?.results
 
@@ -29,7 +29,9 @@ fun PeoplePage(viewModel: PeopleViewModel = getViewModel(), navHostController: N
                     LazyColumn(
                     ) {
                         items(peopleList) { item ->
-                            PeopleItem(navHostController = navHostController, item = item)
+                            PeopleItem(navHostController = navHostController, item = item) {
+                                viewModel.peopleDetail = item
+                            }
                         }
                     }
                 }
@@ -42,15 +44,20 @@ fun PeoplePage(viewModel: PeopleViewModel = getViewModel(), navHostController: N
     }
 }
 
+@ExperimentalMaterialApi
 @Composable
-fun PeopleItem(navHostController: NavHostController, item: PeopleResult) {
-    Card(backgroundColor = Color.Black, modifier = Modifier
-        .fillMaxWidth()
-        .padding(8.dp)
-        .height(90.dp)
-        .clickable {
-//            navHostController.navigate("moviesGenre/${item}")
-        }) {
+fun PeopleItem(
+    navHostController: NavHostController, item: PeopleResult, setPeopleDetail: () -> Unit
+) {
+    Card(backgroundColor = Color.Black,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .height(90.dp)
+            .clickable {
+                setPeopleDetail()
+                navHostController.navigate("peopleDetail")
+            }) {
         Text(
             text = item.name,
             fontSize = 20.sp,
