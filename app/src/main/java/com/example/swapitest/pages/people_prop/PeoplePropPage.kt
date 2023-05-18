@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.swapitest.pages.people.PeopleViewModel
+import com.example.swapitest.pages.people_prop.viewmodel.FilmViewModel
+import com.example.swapitest.pages.people_prop.viewmodel.VehicleViewModel
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterialApi
@@ -27,6 +29,22 @@ fun PeoplePropPage(
     }
 
     PeoplePropContent(title = "Film", list = list)
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun VehiclePage(
+    viewModel: VehicleViewModel = getViewModel(),
+    peopleViewModel: PeopleViewModel
+) {
+    val currentState = viewModel.state.value
+    val list = currentState.data
+
+    LaunchedEffect(key1 = peopleViewModel.peopleDetail.vehicles) {
+        viewModel.getFilm(peopleViewModel.peopleDetail.vehicles)
+    }
+
+    PeoplePropContent(title = "Vehicle", list = list)
 }
 
 @ExperimentalMaterialApi
