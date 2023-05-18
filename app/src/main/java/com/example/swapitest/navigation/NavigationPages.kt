@@ -16,7 +16,7 @@ import com.example.swapitest.pages.people.PeoplePage
 fun NavigationPages(navHostController: NavHostController) {
     NavHost(navController = navHostController, startDestination = NavigationItem.People.route) {
         composable(NavigationItem.People.route) {
-            PeoplePage()
+            PeoplePage(navHostController = navHostController)
         }
     }
 }
