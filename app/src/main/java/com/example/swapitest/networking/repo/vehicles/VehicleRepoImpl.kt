@@ -2,9 +2,7 @@ package com.example.swapitest.networking.repo.vehicles
 
 import com.example.kotlintesttmdb.network.ApiRequest
 import com.example.kotlintesttmdb.network.ApiService
-import com.example.swapitest.models.Film
 import com.example.swapitest.models.Vehicle
-import com.example.swapitest.networking.repo.films.FilmRepo
 import com.example.swapitest.networking.toDomain
 
 class VehicleRepoImpl constructor(private val apiService: ApiService) : VehicleRepo, ApiRequest() {

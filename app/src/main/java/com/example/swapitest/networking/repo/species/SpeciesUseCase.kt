@@ -2,7 +2,6 @@ package com.example.swapitest.networking.repo.species
 
 import com.example.swapitest.getUrl
 import com.example.swapitest.networking.Resource
-import com.example.swapitest.networking.repo.starships.StarshipRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException

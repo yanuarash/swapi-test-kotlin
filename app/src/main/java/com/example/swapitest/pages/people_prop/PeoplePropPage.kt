@@ -1,6 +1,6 @@
 package com.example.swapitest.pages.people_prop
 
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.example.swapitest.pages.people.PeopleViewModel

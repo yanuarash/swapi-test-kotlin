@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.swapitest.models.Starship
 import com.example.swapitest.pages.people.PeoplePage
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_detail.PeopleDetailPage

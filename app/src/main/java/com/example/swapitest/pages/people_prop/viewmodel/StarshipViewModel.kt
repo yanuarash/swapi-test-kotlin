@@ -5,9 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.swapitest.networking.Resource
-import com.example.swapitest.networking.repo.starships.StarshipRepo
 import com.example.swapitest.networking.repo.starships.StarshipUseCase
-import com.example.swapitest.networking.repo.vehicles.VehicleUseCase
 import com.example.swapitest.pages.people_prop.PeoplePropState
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
