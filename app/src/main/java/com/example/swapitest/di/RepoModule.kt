@@ -6,6 +6,9 @@ import com.example.swapitest.networking.repo.films.FilmUseCase
 import com.example.swapitest.networking.repo.people.PeopleRepo
 import com.example.swapitest.networking.repo.people.PeopleRepoImpl
 import com.example.swapitest.networking.repo.people.PeopleUseCase
+import com.example.swapitest.networking.repo.species.SpeciesRepo
+import com.example.swapitest.networking.repo.species.SpeciesRepoImpl
+import com.example.swapitest.networking.repo.species.SpeciesUseCase
 import com.example.swapitest.networking.repo.starships.StarshipRepo
 import com.example.swapitest.networking.repo.starships.StarshipRepoImpl
 import com.example.swapitest.networking.repo.starships.StarshipUseCase
@@ -23,4 +26,6 @@ val repoModule = module {
     single<VehicleRepo> { VehicleRepoImpl(get()) }
     single { StarshipUseCase(get()) }
     single<StarshipRepo> { StarshipRepoImpl(get()) }
+    single { SpeciesUseCase(get()) }
+    single<SpeciesRepo> { SpeciesRepoImpl(get()) }
 }
