@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.onEach
 class PeopleViewModel constructor(private val peopleUseCase: PeopleUseCase) : ViewModel() {
     private val _state = mutableStateOf(PeopleState())
     val state: State<PeopleState> = _state
-    lateinit var peopleDetail: PeopleResult;
+    lateinit var peopleDetail: PeopleResult
 
     init {
         getPeople()

@@ -27,9 +27,8 @@ fun PeoplePropContent(
                     CircularProgressIndicator()
                 }
             } else if (list != null) {
-                Column() {
-                    LazyColumn(
-                    ) {
+                Column {
+                    LazyColumn {
                         items(list) { item ->
                             PeoplePropItem(item = item)
                         }

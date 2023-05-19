@@ -28,7 +28,7 @@ fun PeopleDetailPage(viewModel: PeopleViewModel, navHostController: NavHostContr
         Box(modifier = Modifier.padding(paddingValues)) {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                 PeopleName(peopleDetail = peopleDetail)
-                Row() {
+                Row {
                     ButtonPeopleProp(title = "Film", modifier = Modifier
                         .padding(8.dp)
                         .weight(1f)
@@ -44,7 +44,7 @@ fun PeopleDetailPage(viewModel: PeopleViewModel, navHostController: NavHostContr
                                 navHostController.navigate(NavigationItem.VehicleProp.route)
                             })
                 }
-                Row() {
+                Row {
                     ButtonPeopleProp(
                         title = "Starship",
                         modifier = Modifier

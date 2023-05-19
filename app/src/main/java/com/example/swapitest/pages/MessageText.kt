@@ -24,7 +24,7 @@ fun RetryMsg(msg: String, onClick: () -> Unit) {
 @Composable
 fun NoDataMsg(msg: String) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Column() {
+        Column {
             Text(text = msg)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.di
+package com.example.swapitest.di
 
 import com.example.swapitest.networking.repo.films.FilmRepo
 import com.example.swapitest.networking.repo.films.FilmRepoImpl

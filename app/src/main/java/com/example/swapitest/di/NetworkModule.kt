@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.di
+package com.example.swapitest.di
 
 import com.example.kotlintesttmdb.network.ApiService
 import com.example.swapitest.networking.Constants

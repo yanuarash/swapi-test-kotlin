@@ -31,9 +31,8 @@ fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController)
                     CircularProgressIndicator()
                 }
             } else if (peopleList != null) {
-                Column() {
-                    LazyColumn(
-                    ) {
+                Column {
+                    LazyColumn {
                         items(peopleList) { item ->
                             PeopleItem(navHostController = navHostController, item = item) {
                                 viewModel.peopleDetail = item

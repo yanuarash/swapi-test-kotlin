@@ -20,7 +20,7 @@ import org.koin.androidx.compose.getViewModel
 @ExperimentalFoundationApi
 @Composable
 fun NavigationPages(navHostController: NavHostController) {
-    val peopleViewModel: PeopleViewModel = getViewModel();
+    val peopleViewModel: PeopleViewModel = getViewModel()
 
     NavHost(navController = navHostController, startDestination = NavigationItem.People.route) {
         composable(NavigationItem.People.route) {

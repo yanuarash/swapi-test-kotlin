@@ -1,8 +1,8 @@
 package com.example.swapitest
 
 import android.app.Application
-import com.example.kotlintesttmdb.di.networkModule
-import com.example.kotlintesttmdb.di.repoModule
+import com.example.swapitest.di.networkModule
+import com.example.swapitest.di.repoModule
 import com.example.swapitest.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -13,7 +13,7 @@ class SwapiTestApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val modules = listOf(networkModule, viewModelModule, repoModule);
+        val modules = listOf(networkModule, viewModelModule, repoModule)
 
         startKoin{
             androidLogger(level = Level.NONE)
