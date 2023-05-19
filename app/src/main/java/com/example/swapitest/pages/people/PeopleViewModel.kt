@@ -19,7 +19,7 @@ class PeopleViewModel constructor(private val peopleUseCase: PeopleUseCase) : Vi
         getPeople()
     }
 
-    private fun getPeople() {
+    fun getPeople() {
         val res = peopleUseCase.invoke(1)
         res.onEach { result ->
             when (result) {

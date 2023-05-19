@@ -1,15 +1,8 @@
 package com.example.swapitest.pages.people_prop
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_prop.viewmodel.FilmViewModel
 import com.example.swapitest.pages.people_prop.viewmodel.SpeciesViewModel
@@ -20,8 +13,7 @@ import org.koin.androidx.compose.getViewModel
 @ExperimentalMaterialApi
 @Composable
 fun PeoplePropPage(
-    viewModel: FilmViewModel = getViewModel(),
-    peopleViewModel: PeopleViewModel
+    viewModel: FilmViewModel = getViewModel(), peopleViewModel: PeopleViewModel
 ) {
     val currentState = viewModel.state.value
     val list = currentState.data
@@ -31,18 +23,16 @@ fun PeoplePropPage(
     }
 
     PeoplePropContent(
-        title = "Film",
-        list = list,
-        isLoading = currentState.isLoading,
-        error = currentState.error
-    )
+        title = "Film", list = list, isLoading = currentState.isLoading, error = currentState.error
+    ) {
+        viewModel.getFilm(peopleViewModel.peopleDetail.films)
+    }
 }
 
 @ExperimentalMaterialApi
 @Composable
 fun VehiclePropPage(
-    viewModel: VehicleViewModel = getViewModel(),
-    peopleViewModel: PeopleViewModel
+    viewModel: VehicleViewModel = getViewModel(), peopleViewModel: PeopleViewModel
 ) {
     val currentState = viewModel.state.value
     val list = currentState.data
@@ -56,14 +46,15 @@ fun VehiclePropPage(
         list = list,
         isLoading = currentState.isLoading,
         error = currentState.error
-    )
+    ) {
+        viewModel.getData(peopleViewModel.peopleDetail.vehicles)
+    }
 }
 
 @ExperimentalMaterialApi
 @Composable
 fun StarshipPropPage(
-    viewModel: StarshipViewModel = getViewModel(),
-    peopleViewModel: PeopleViewModel
+    viewModel: StarshipViewModel = getViewModel(), peopleViewModel: PeopleViewModel
 ) {
     val currentState = viewModel.state.value
     val list = currentState.data
@@ -77,14 +68,15 @@ fun StarshipPropPage(
         list = list,
         isLoading = currentState.isLoading,
         error = currentState.error
-    )
+    ) {
+        viewModel.getData(peopleViewModel.peopleDetail.starships)
+    }
 }
 
 @ExperimentalMaterialApi
 @Composable
 fun SpeciesPropPage(
-    viewModel: SpeciesViewModel = getViewModel(),
-    peopleViewModel: PeopleViewModel
+    viewModel: SpeciesViewModel = getViewModel(), peopleViewModel: PeopleViewModel
 ) {
     val currentState = viewModel.state.value
     val list = currentState.data
@@ -98,5 +90,7 @@ fun SpeciesPropPage(
         list = list,
         isLoading = currentState.isLoading,
         error = currentState.error
-    )
+    ) {
+        viewModel.getData(peopleViewModel.peopleDetail.species)
+    }
 }

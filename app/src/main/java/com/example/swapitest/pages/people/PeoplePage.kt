@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.swapitest.models.PeopleResult
-import com.example.swapitest.networking.Resource
-import org.koin.androidx.compose.getViewModel
+import com.example.swapitest.pages.NoDataMsg
+import com.example.swapitest.pages.RetryMsg
 
 @ExperimentalMaterialApi
 @Composable
@@ -25,7 +25,7 @@ fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController)
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "People") })
     }) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
+        Box(modifier = Modifier.padding(paddingValues).fillMaxSize(), contentAlignment = Alignment.Center) {
             if (peopleState.isLoading) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
@@ -42,13 +42,11 @@ fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController)
                     }
                 }
             } else if (!peopleState.error.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = peopleState.error)
+                RetryMsg(msg = peopleState.error) {
+                    viewModel.getPeople()
                 }
             } else {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = "No Data")
-                }
+                NoDataMsg(msg = "No Data")
             }
         }
     }
