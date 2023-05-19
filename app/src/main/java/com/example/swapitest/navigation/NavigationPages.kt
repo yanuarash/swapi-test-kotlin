@@ -11,6 +11,7 @@ import com.example.swapitest.pages.people.PeoplePage
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_detail.PeopleDetailPage
 import com.example.swapitest.pages.people_prop.PeoplePropPage
+import com.example.swapitest.pages.people_prop.SpeciesPropPage
 import com.example.swapitest.pages.people_prop.StarshipPropPage
 import com.example.swapitest.pages.people_prop.VehiclePropPage
 import org.koin.androidx.compose.getViewModel
@@ -40,6 +41,10 @@ fun NavigationPages(navHostController: NavHostController) {
 
         composable(NavigationItem.StarshipProp.route) {
             StarshipPropPage(peopleViewModel = peopleViewModel)
+        }
+
+        composable(NavigationItem.SpeciesProp.route) {
+            SpeciesPropPage(peopleViewModel = peopleViewModel)
         }
     }
 }
