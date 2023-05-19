@@ -52,7 +52,7 @@ fun PeopleDetailItem(title: String, value: String) {
             .padding(8.dp)
             .fillMaxWidth()
     ) {
-        Text(text = title, color = Color.Gray)
+        Text(text = title, color = Color.LightGray)
         Text(text = value, color = Color.White, fontWeight = FontWeight.Bold)
     }
 }

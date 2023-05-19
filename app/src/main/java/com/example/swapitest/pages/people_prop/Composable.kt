@@ -10,36 +10,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.swapitest.pages.LoadingProgress
 import com.example.swapitest.pages.NoDataMsg
 import com.example.swapitest.pages.RetryMsg
 
 @ExperimentalMaterialApi
 @Composable
-fun PeoplePropContent(
-    title: String, list: List<String>?, isLoading: Boolean, error: String, retry: () -> Unit
-) {
-    Scaffold(topBar = {
-        TopAppBar(title = { Text(text = title) })
-    }) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
-            if (isLoading) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    CircularProgressIndicator()
-                }
-            } else if (list != null) {
-                Column {
-                    LazyColumn {
-                        items(list) { item ->
-                            PeoplePropItem(item = item)
-                        }
-                    }
-                }
-            } else if (!error.isEmpty()) {
-                RetryMsg(msg = error) {
-                    retry()
-                }
-            } else {
-                NoDataMsg(msg = "No Data")
+fun ListData(list: List<String>) {
+    Column {
+        LazyColumn {
+            items(list) { item ->
+                PeoplePropItem(item = item)
             }
         }
     }

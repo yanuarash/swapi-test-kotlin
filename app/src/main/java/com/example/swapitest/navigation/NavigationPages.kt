@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import com.example.swapitest.pages.people.PeoplePage
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_detail.PeopleDetailPage
-import com.example.swapitest.pages.people_prop.PeoplePropPage
+import com.example.swapitest.pages.people_prop.FilmPropPage
 import com.example.swapitest.pages.people_prop.SpeciesPropPage
 import com.example.swapitest.pages.people_prop.StarshipPropPage
 import com.example.swapitest.pages.people_prop.VehiclePropPage
@@ -31,7 +31,7 @@ fun NavigationPages(navHostController: NavHostController) {
         }
 
         composable(NavigationItem.PeopleProp.route) {
-            PeoplePropPage(peopleViewModel = peopleViewModel)
+            FilmPropPage(peopleViewModel = peopleViewModel)
         }
 
         composable(NavigationItem.VehicleProp.route) {
