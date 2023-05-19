@@ -25,10 +25,12 @@ class StarshipViewModel constructor(private val starshipUseCase: StarshipUseCase
                 }
 
                 is Resource.Success -> {
+                    _state.value = PeoplePropState(isLoading = false)
                     _state.value = PeoplePropState(data = result.data)
                 }
 
                 is Resource.Error -> {
+                    _state.value = PeoplePropState(isLoading = false)
                     _state.value = PeoplePropState(error = result.message ?: "error getting data")
                 }
             }
