@@ -6,10 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.swapitest.models.Starship
 import com.example.swapitest.pages.people.PeoplePage
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_detail.PeopleDetailPage
 import com.example.swapitest.pages.people_prop.PeoplePropPage
+import com.example.swapitest.pages.people_prop.StarshipPropPage
 import com.example.swapitest.pages.people_prop.VehiclePropPage
 import org.koin.androidx.compose.getViewModel
 
@@ -34,6 +36,10 @@ fun NavigationPages(navHostController: NavHostController) {
 
         composable(NavigationItem.VehicleProp.route) {
             VehiclePropPage(peopleViewModel = peopleViewModel)
+        }
+
+        composable(NavigationItem.StarshipProp.route) {
+            StarshipPropPage(peopleViewModel = peopleViewModel)
         }
     }
 }

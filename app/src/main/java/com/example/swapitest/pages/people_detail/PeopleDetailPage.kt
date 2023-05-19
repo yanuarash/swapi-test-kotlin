@@ -36,6 +36,9 @@ fun PeopleDetailPage(viewModel: PeopleViewModel, navHostController: NavHostContr
                 ButtonPeopleProp(title = "Vehicle") {
                     navHostController.navigate(NavigationItem.VehicleProp.route)
                 }
+                ButtonPeopleProp(title = "Starship") {
+                    navHostController.navigate(NavigationItem.StarshipProp.route)
+                }
                 Text(
                     text = "Detail",
                     fontWeight = FontWeight.Bold,

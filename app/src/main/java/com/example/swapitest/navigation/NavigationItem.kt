@@ -5,4 +5,5 @@ sealed class NavigationItem (var route: String, var title: String){
     object PeopleDetail : NavigationItem("peopleDetail", "PeopleDetail");
     object PeopleProp : NavigationItem("peopleProp", "PeopleProp");
     object VehicleProp : NavigationItem("vehicleProp", "VehicleProp");
+    object StarshipProp : NavigationItem("starshipProp", "StarshipProp");
 }
