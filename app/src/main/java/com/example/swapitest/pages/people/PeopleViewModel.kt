@@ -28,10 +28,12 @@ class PeopleViewModel constructor(private val peopleUseCase: PeopleUseCase) : Vi
                 }
 
                 is Resource.Success -> {
+                    _state.value = PeopleState(isLoading = false)
                     _state.value = PeopleState(data = result.data)
                 }
 
                 is Resource.Error -> {
+                    _state.value = PeopleState(isLoading = false)
                     _state.value = PeopleState(error = result.message ?: "error getting data")
                 }
             }
