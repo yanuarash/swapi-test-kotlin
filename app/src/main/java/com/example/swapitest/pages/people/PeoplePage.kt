@@ -6,12 +6,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.swapitest.models.PeopleResult
+import com.example.swapitest.networking.Resource
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterialApi
@@ -24,7 +26,11 @@ fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController)
         TopAppBar(title = { Text(text = "People") })
     }) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
-            if (peopleList != null) {
+            if (peopleState.isLoading) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            } else if (peopleList != null) {
                 Column() {
                     LazyColumn(
                     ) {
@@ -35,9 +41,13 @@ fun PeoplePage(viewModel: PeopleViewModel, navHostController: NavHostController)
                         }
                     }
                 }
+            } else if (!peopleState.error.isEmpty()) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(text = peopleState.error)
+                }
             } else {
-                Snackbar() {
-                    Text(text = "Error Fetching Data")
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(text = "No Data")
                 }
             }
         }

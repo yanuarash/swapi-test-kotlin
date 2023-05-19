@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -12,12 +13,16 @@ import androidx.compose.ui.unit.sp
 
 @ExperimentalMaterialApi
 @Composable
-fun PeoplePropContent(title: String, list: List<String>?) {
+fun PeoplePropContent(title: String, list: List<String>?, isLoading: Boolean, error: String) {
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = title) })
     }) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
-            if (list != null) {
+            if (isLoading) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            } else if (list != null) {
                 Column() {
                     LazyColumn(
                     ) {
@@ -26,9 +31,13 @@ fun PeoplePropContent(title: String, list: List<String>?) {
                         }
                     }
                 }
+            } else if (!error.isEmpty()) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(text = error)
+                }
             } else {
-                Snackbar() {
-                    Text(text = "Error Fetching Data")
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(text = "No Data")
                 }
             }
         }

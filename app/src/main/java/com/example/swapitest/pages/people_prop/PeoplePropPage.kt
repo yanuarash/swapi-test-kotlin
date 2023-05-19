@@ -23,14 +23,19 @@ fun PeoplePropPage(
     viewModel: FilmViewModel = getViewModel(),
     peopleViewModel: PeopleViewModel
 ) {
-    val peopleState = viewModel.state.value
-    val list = peopleState.data
+    val currentState = viewModel.state.value
+    val list = currentState.data
 
     LaunchedEffect(key1 = peopleViewModel.peopleDetail.films) {
         viewModel.getFilm(peopleViewModel.peopleDetail.films)
     }
 
-    PeoplePropContent(title = "Film", list = list)
+    PeoplePropContent(
+        title = "Film",
+        list = list,
+        isLoading = currentState.isLoading,
+        error = currentState.error
+    )
 }
 
 @ExperimentalMaterialApi
@@ -46,7 +51,12 @@ fun VehiclePropPage(
         viewModel.getData(peopleViewModel.peopleDetail.vehicles)
     }
 
-    PeoplePropContent(title = "Vehicle", list = list)
+    PeoplePropContent(
+        title = "Vehicle",
+        list = list,
+        isLoading = currentState.isLoading,
+        error = currentState.error
+    )
 }
 
 @ExperimentalMaterialApi
@@ -62,7 +72,12 @@ fun StarshipPropPage(
         viewModel.getData(peopleViewModel.peopleDetail.starships)
     }
 
-    PeoplePropContent(title = "Starship", list = list)
+    PeoplePropContent(
+        title = "Starship",
+        list = list,
+        isLoading = currentState.isLoading,
+        error = currentState.error
+    )
 }
 
 @ExperimentalMaterialApi
@@ -78,5 +93,10 @@ fun SpeciesPropPage(
         viewModel.getData(peopleViewModel.peopleDetail.species)
     }
 
-    PeoplePropContent(title = "Species", list = list)
+    PeoplePropContent(
+        title = "Species",
+        list = list,
+        isLoading = currentState.isLoading,
+        error = currentState.error
+    )
 }
