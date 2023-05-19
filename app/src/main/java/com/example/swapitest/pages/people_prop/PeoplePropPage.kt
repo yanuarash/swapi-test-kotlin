@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.swapitest.pages.people.PeopleViewModel
 import com.example.swapitest.pages.people_prop.viewmodel.FilmViewModel
+import com.example.swapitest.pages.people_prop.viewmodel.SpeciesViewModel
 import com.example.swapitest.pages.people_prop.viewmodel.StarshipViewModel
 import com.example.swapitest.pages.people_prop.viewmodel.VehicleViewModel
 import org.koin.androidx.compose.getViewModel
@@ -62,6 +63,22 @@ fun StarshipPropPage(
     }
 
     PeoplePropContent(title = "Starship", list = list)
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun SpeciesPropPage(
+    viewModel: SpeciesViewModel = getViewModel(),
+    peopleViewModel: PeopleViewModel
+) {
+    val currentState = viewModel.state.value
+    val list = currentState.data
+
+    LaunchedEffect(key1 = peopleViewModel.peopleDetail.species) {
+        viewModel.getData(peopleViewModel.peopleDetail.species)
+    }
+
+    PeoplePropContent(title = "Species", list = list)
 }
 
 @ExperimentalMaterialApi
