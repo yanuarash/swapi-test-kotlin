@@ -1,9 +1,6 @@
 package com.example.kotlintesttmdb.network
 
-import com.example.swapitest.models.Film
-import com.example.swapitest.models.People
-import com.example.swapitest.models.Starship
-import com.example.swapitest.models.Vehicle
+import com.example.swapitest.models.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -29,4 +26,9 @@ interface ApiService {
     suspend fun getStarship(
         @Path("id") page: String,
     ): Response<Starship>
+
+    @GET("species/{id}")
+    suspend fun getSpecies(
+        @Path("id") page: String,
+    ): Response<Species>
 }

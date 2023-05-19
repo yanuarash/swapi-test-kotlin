@@ -1,9 +1,6 @@
 package com.example.swapitest.networking
 
-import com.example.swapitest.models.Film
-import com.example.swapitest.models.People
-import com.example.swapitest.models.Starship
-import com.example.swapitest.models.Vehicle
+import com.example.swapitest.models.*
 
 internal fun People.toDomain(): People {
     return People(count, next, previous, results)
@@ -19,4 +16,8 @@ internal fun Vehicle.toDomain(): Vehicle {
 
 internal fun Starship.toDomain(): Starship {
     return Starship(name)
+}
+
+internal fun Species.toDomain(): Species {
+    return Species(name)
 }
