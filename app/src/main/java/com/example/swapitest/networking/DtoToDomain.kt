@@ -2,6 +2,7 @@ package com.example.swapitest.networking
 
 import com.example.swapitest.models.Film
 import com.example.swapitest.models.People
+import com.example.swapitest.models.Starship
 import com.example.swapitest.models.Vehicle
 
 internal fun People.toDomain(): People {
@@ -14,4 +15,8 @@ internal fun Film.toDomain(): Film {
 
 internal fun Vehicle.toDomain(): Vehicle {
     return Vehicle(name)
+}
+
+internal fun Starship.toDomain(): Starship {
+    return Starship(name)
 }
