@@ -3,7 +3,6 @@ package com.example.swapitest.pages.people_detail
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -13,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
 import com.example.swapitest.models.PeopleResult
 import com.example.swapitest.navigation.NavigationItem
@@ -30,17 +28,39 @@ fun PeopleDetailPage(viewModel: PeopleViewModel, navHostController: NavHostContr
         Box(modifier = Modifier.padding(paddingValues)) {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
                 PeopleName(peopleDetail = peopleDetail)
-                ButtonPeopleProp(title = "Film") {
-                    navHostController.navigate(NavigationItem.PeopleProp.route)
+                Row() {
+                    ButtonPeopleProp(title = "Film", modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f)
+                        .clickable {
+                            navHostController.navigate(NavigationItem.PeopleProp.route)
+                        })
+                    ButtonPeopleProp(
+                        title = "Vehicle",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .weight(1f)
+                            .clickable {
+                                navHostController.navigate(NavigationItem.VehicleProp.route)
+                            })
                 }
-                ButtonPeopleProp(title = "Vehicle") {
-                    navHostController.navigate(NavigationItem.VehicleProp.route)
-                }
-                ButtonPeopleProp(title = "Starship") {
-                    navHostController.navigate(NavigationItem.StarshipProp.route)
-                }
-                ButtonPeopleProp(title = "Species") {
-                    navHostController.navigate(NavigationItem.SpeciesProp.route)
+                Row() {
+                    ButtonPeopleProp(
+                        title = "Starship",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .weight(1f)
+                            .clickable {
+                                navHostController.navigate(NavigationItem.StarshipProp.route)
+                            })
+                    ButtonPeopleProp(
+                        title = "Species",
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .weight(1f)
+                            .clickable {
+                                navHostController.navigate(NavigationItem.SpeciesProp.route)
+                            })
                 }
                 Text(
                     text = "Detail",
@@ -62,12 +82,11 @@ fun PeopleName(peopleDetail: PeopleResult) {
             .height(100.dp)
             .clickable {}) {
         Box(
-            modifier = Modifier
-                .fillMaxWidth(), contentAlignment = Alignment.Center
+            modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = peopleDetail.name,
@@ -88,22 +107,17 @@ fun PeopleName(peopleDetail: PeopleResult) {
 }
 
 @Composable
-fun ButtonPeopleProp(title: String, navigate: () -> Unit) {
+fun ButtonPeopleProp(title: String, modifier: Modifier) {
     Card(
-        backgroundColor = Color.Black,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .height(90.dp)
-            .clickable {
-                navigate()
-            }
+        backgroundColor = Color.Black, modifier = modifier
     ) {
-        Text(
-            text = title,
-            fontSize = 20.sp,
-            modifier = Modifier.padding(all = 8.dp),
-            color = Color.White
-        )
+        Box(modifier = Modifier.padding(8.dp), contentAlignment = Alignment.Center) {
+            Text(
+                text = title,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(all = 8.dp),
+                color = Color.White
+            )
+        }
     }
 }
