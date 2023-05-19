@@ -10,10 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.swapitest.pages.NoDataMsg
+import com.example.swapitest.pages.RetryMsg
 
 @ExperimentalMaterialApi
 @Composable
-fun PeoplePropContent(title: String, list: List<String>?, isLoading: Boolean, error: String) {
+fun PeoplePropContent(
+    title: String, list: List<String>?, isLoading: Boolean, error: String, retry: () -> Unit
+) {
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = title) })
     }) { paddingValues ->
@@ -32,13 +36,11 @@ fun PeoplePropContent(title: String, list: List<String>?, isLoading: Boolean, er
                     }
                 }
             } else if (!error.isEmpty()) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = error)
+                RetryMsg(msg = error) {
+                    retry()
                 }
             } else {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(text = "No Data")
-                }
+                NoDataMsg(msg = "No Data")
             }
         }
     }
